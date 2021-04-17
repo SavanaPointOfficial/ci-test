@@ -1,5 +1,14 @@
 {
   "projects": {
     "default": "savanapointofficial"
+  },
+  "targets": {
+    "savanapointofficial": {
+      "hosting": {
+        "iscooming": [
+          "savanapointofficial"
+        ]
+      }
+    }
   }
 }

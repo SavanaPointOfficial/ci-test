@@ -1,0 +1,31 @@
+<h1 mat-dialog-title>Ola Winner</h1>
+
+  <form [formGroup]="uploadCvForm" (ngSubmit)="onNoClick()">
+    <button type="button" mat-raised-button (click)="fileInput.click()">Carregar CV!!</button>
+    <input formControlName="file" accept=".pdf, .doc,.docx" hidden (change)="onFileChanged($event)"  #fileInput type="file" id="file">
+      <mat-form-field appearance="outline">
+        <mat-label>Primeiro nome</mat-label>
+        <input formControlName="first_name" matInput >
+      </mat-form-field>
+    
+      <mat-form-field appearance="outline">
+        <mat-label>Apelido</mat-label>
+        <input formControlName="last_name" matInput >
+      </mat-form-field>
+    
+    
+      <mat-form-field appearance="outline">
+        <mat-label>Email</mat-label>
+        <input formControlName="email" matInput >
+      </mat-form-field>
+    
+      <mat-form-field appearance="outline">
+        <mat-label>Telefone</mat-label>
+        <input formControlName="phone" matInput >
+      </mat-form-field>
+   
+    <div mat-dialog-actions>
+      <button [disabled]="!uploadCvForm.valid"  mat-button  style="background-color: #8e2ddd; color: #fff; border: none">Enviar meu CV</button>
+    </div>
+  </form>
+

@@ -1,0 +1,5 @@
+<form [formGroup]="newsLetter"  id="mc-form" class="group"  (ngSubmit)="sendNewsletter()">
+  <input formControlName="email"  type="email" class="email" id="mc-email" placeholder="Seu melhor email">
+  <input  type="submit" name="subscribe" value="Me avise">
+  <label for="mc-email" class="subscribe-message"></label>
+</form>
