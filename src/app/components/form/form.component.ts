@@ -25,12 +25,22 @@ export class FormComponent implements OnInit {
   }
   async sendNewsletter() {
     const email = this.newsLetter.value.email;
-   try {
-    await this.afs.collection('masterwinner-newsletter')
-    .add({
-    email
-    })
-    await this.toastr.success("Seu email foi enviado com sucesso!", "Olá Winner!")
+    try
+    {
+      if (email)
+      {
+        await this.afs.collection('masterwinner-newsletter')
+        .add({
+        email
+        })
+       await this.toastr.success("Seu email foi enviado com sucesso!", "Olá Winner!")
+      }
+
+
+      if (!email)
+      {
+        this.toastr.error("Algo deu errado, por favor tente de novo!", "Olá Winner!")
+      }
      } catch (error) {
        this.toastr.error("Algo deu errado, por favor tente de novo!", "Olá Winner!")
 
