@@ -30,9 +30,9 @@ export class FormComponent implements OnInit {
     .add({
     email
     })
-    await this.toastr.success("Seu email foi enviado com sucesso!", "Ola Winner!")
+    await this.toastr.success("Seu email foi enviado com sucesso!", "Olá Winner!")
      } catch (error) {
-       this.toastr.error("Algo deu errado, por favor tente de novo!", "Ola Winner!")
+       this.toastr.error("Algo deu errado, por favor tente de novo!", "Olá Winner!")
 
    }
   }

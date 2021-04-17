@@ -52,10 +52,10 @@ export class CallDialogComponent implements OnInit {
 
  async onUpload() {
     this.preloder = true;
-     
+
     const uploadData = new FormData();
     uploadData.append('doc_file', this.selectedFile, this.selectedFile.name);
-   
+
    this.http.post('https://sp-upload-docfiles-api-v1.herokuapp.com/api/user/update-user/upload', uploadData)
    .subscribe(async(data:any) => {
      try {
@@ -67,10 +67,10 @@ export class CallDialogComponent implements OnInit {
         email: this.uploadCvForm.value.email,
         phone: this.uploadCvForm.value.phone
       })
-       await this.toastr.success("Seu CV foi enviado com sucesso!", "Ola Winner!")
+       await this.toastr.success("Seu CV foi enviado com sucesso!", "Olá Winner!")
      } catch (error) {
-       this.toastr.error("Algo deu errado, por favor tente de novo!", "Ola Winner!")
-       
+       this.toastr.error("Algo deu errado, por favor tente de novo!", "Olá Winner!")
+
      }
    })
        return  this.preloder = await false;
