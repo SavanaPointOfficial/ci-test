@@ -47,7 +47,7 @@ export class HomeComponent implements OnInit {
   ) { }
   ngOnInit() {
     this.countDown()
-    throw new Error('Method not implemented.');
+    
 
   }
 
@@ -63,7 +63,7 @@ export class HomeComponent implements OnInit {
     });
   }
 
- 
+
   countDown() {
 
     const second = 1000,
