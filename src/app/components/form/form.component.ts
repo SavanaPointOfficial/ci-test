@@ -31,12 +31,22 @@ export class FormComponent implements OnInit {
     {
       if (email)
       {
-        await this.afs.collection('masterwinner-newsletter')
-        .add({
-        email
-        })
-        await this.toastr.success("Seu email foi enviado com sucesso!", "Olá Winner!")
-        this.newsLetter.reset()
+        const verifyEmail = await this.afs.collection('masterwinner-newsletter').ref.where('email', '==', email).limit(1).get()
+        const io = verifyEmail.docs.map(data => data.exists)
+        if (io[0] === true)
+        {
+          await this.toastr.info("Este e-mail já está registado", "Olá Winner!")
+          return this.newsLetter.reset()
+        }
+        else
+        {
+          await this.afs.collection('masterwinner-newsletter')
+          .add({
+          email
+          })
+          await this.toastr.success("Seu email foi enviado com sucesso!", "Olá Winner!")
+          this.newsLetter.reset()
+       }
       }
 
 
