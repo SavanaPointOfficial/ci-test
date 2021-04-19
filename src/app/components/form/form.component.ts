@@ -9,6 +9,8 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./form.component.scss']
 })
 export class FormComponent implements OnInit {
+  public emailRegEx = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+
   public newsLetter!: FormGroup;
   constructor(
     private forB: FormBuilder,
@@ -19,7 +21,7 @@ export class FormComponent implements OnInit {
   ngOnInit(): void {
     this.newsLetter = this.forB.group({
 
-      email: ['', Validators.required],
+      email: ['', Validators.pattern(this.emailRegEx)],
 
     })
   }
@@ -33,7 +35,8 @@ export class FormComponent implements OnInit {
         .add({
         email
         })
-       await this.toastr.success("Seu email foi enviado com sucesso!", "Olá Winner!")
+        await this.toastr.success("Seu email foi enviado com sucesso!", "Olá Winner!")
+        this.newsLetter.reset()
       }
 
 

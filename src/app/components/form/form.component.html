@@ -1,5 +1,6 @@
 <form [formGroup]="newsLetter"  id="mc-form" class="group"  (ngSubmit)="sendNewsletter()">
   <input formControlName="email"  type="email" class="email" id="mc-email" placeholder="Seu melhor email">
-  <input  type="submit" name="subscribe" value="Me avise">
+  <strong *ngIf="!newsLetter.valid" style="color: #ec008c; font-weight:bold">Por favor Winner, insira um email valido!</strong>
+  <input   type="submit" name="subscribe" value="Me avise" [disabled]="!newsLetter.valid">
   <label for="mc-email" class="subscribe-message"></label>
 </form>
